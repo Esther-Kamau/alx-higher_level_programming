@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+
+import os
+
+pyfile = os.getenv("PYFILE")
+output_file = pyfile + "c"
+
+os.system(f"python3 -m compileall {pyfile}")
+os.rename("__pycache__/" + output_file, output_file)
+os.system(f"rm -rf __pycache__")
+print(f"Compiling {pyfile} ...")
